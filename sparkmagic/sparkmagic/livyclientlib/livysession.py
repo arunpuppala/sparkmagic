@@ -119,7 +119,10 @@ class LivySession(ObjectWithGuid):
             properties[constants.LIVY_CONF_PARAM][constants.PYSPARK_PYTHON_PARAM] = constants.LANG_PYTHON
         elif kind == constants.SESSION_KIND_PYSPARK3:
             properties[constants.LIVY_KIND_PARAM] = constants.SESSION_KIND_PYSPARK
-            properties[constants.LIVY_CONF_PARAM][constants.PYSPARK_PYTHON_PARAM] = constants.LANG_PYTHON3
+            properties[constants.LIVY_CONF_PARAM][constants.PYSPARK_PYTHON_PARAM] = "/usr/bin/anaconda/envs/py35/bin/python3"
+        print("After changes \n")
+        for k,v in properties.items():
+            print(k,v)
 
     def start(self):
         """Start the session against actual livy server."""
